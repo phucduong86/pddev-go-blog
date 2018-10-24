@@ -1,0 +1,25 @@
+baseURL = "https://blog.pddev.xyz/"
+languageCode = "en-us"
+title = "My all things blog"
+theme = "purehugo"
+paginate = 10
+#disqusShortname = "xxxx"
+staticDir = ["static"]
+
+[params]
+  twitterName = "pddev_ca"
+  githubName = "phucduong86"
+#  stackOverflowId = "#######"
+  linkedinName = "phuc-duong"
+  description = "Other people's wisdom collected"
+#  google_analytics = "UA-xxxxxx-xx"
+
+# MARKDOWN
+## Configuration for BlackFriday markdown parser: https://github.com/russross/blackfriday
+[blackfriday]
+	plainIDAnchors = true
+  # See https://github.com/gohugoio/hugo/issues/2424
+	hrefTargetBlank = false
+  angledQuotes = false
+  latexDashes = true
+
