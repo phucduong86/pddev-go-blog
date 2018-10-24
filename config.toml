@@ -1,25 +1,106 @@
 baseURL = "https://blog.pddev.xyz/"
 languageCode = "en-us"
-title = "My all things blog"
-theme = "purehugo"
-paginate = 10
+title = "Phuc Duong's Blog"
+theme = "bilberry-hugo-theme"
+
+enableRobotsTXT = true
 #disqusShortname = "xxxx"
-staticDir = ["static"]
 
 [params]
-  twitterName = "pddev_ca"
-  githubName = "phucduong86"
-#  stackOverflowId = "#######"
-  linkedinName = "phuc-duong"
-  description = "Other people's wisdom collected"
-#  google_analytics = "UA-xxxxxx-xx"
+  # Favicon for the browser's favorites and tabs
+  favicon = "images/favicon.png" # set a favicon icon
 
-# MARKDOWN
-## Configuration for BlackFriday markdown parser: https://github.com/russross/blackfriday
-[blackfriday]
-	plainIDAnchors = true
-  # See https://github.com/gohugoio/hugo/issues/2424
-	hrefTargetBlank = false
-  angledQuotes = false
-  latexDashes = true
+  # Description and meta data for the search engines
+  author = "Phuc Duong"
+  description = "Curated wisdom from others."
+  keywords = "blog,personal,posts,golang"
+  
+  # How many articles should be displayed at once?
+  paginate = 10
+
+  # Enable / Disable algolia search
+  algolia_search    = false
+
+    # Style configuration
+    # set the width of your site's content
+    siteWidth = "800px"
+
+    # let hugo automatically resize and crop your images to the correct sizes
+    resizeImages = true
+
+    # Header configuration
+    # your subtitle if you want to use any
+    subtitle = "Curated wisdom from others."
+
+    # if you want to use gravatar for the header image
+    gravatarEMail = "phuc.duongdinh@gmail.com"
+    # set an path to the image file you want to use | overwrites gravatar
+    customImage = "images/favicon.png"
+
+    # always display the top navigation (with pages and search) on non-mobile screens
+    permanentTopNav = true
+
+    # Content configuration
+    # Enable an optional pinned page to display at the top of the index
+    pinnedPost = "/page/about.md"
+    # Set to true to pin only to the first page, false to all pages
+    pinOnlyToFirstPage = false
+
+    # enable automatical localization of the article's PublishedDate with momentjs
+    enableMomentJs = true
+
+    # customize the date format | only works if momentjs is disabled | only works with English month names
+    # you can customize it with the options you find here:
+    # https://gohugo.io/functions/format/#hugo-date-and-time-templating-reference
+    dateFormat = "Mon Jan 2 2006"
+
+    # display the estimated reading time for an article
+    showReadingTime = false
+
+    # Footer configuration
+    showFooter = true
+
+    # How many articles should be displayed at latest posts in the footer?
+    # Set to -1 to hide the 'Latest Posts' column
+    amountLatestPostsInFooter = 7
+
+    # How many categories should be displayed in the footer section?
+    # Set to -1 to hide the 'Categories' column
+    amountCategoriesInFooter = 7
+
+    # show a language chooser in the header
+    showFooterLanguageChooser = false
+
+    # social media profile urls for the footer links
+    showSocialMedia = true
+
+    twitter    = "https://twitter.com/pddev_ca"
+    instagram  = "https://www.instagram.com/phucduong86/"
+    github     = "https://github.com/phucduong86"
+    linkedin   = "https://www.linkedin.com/in/phuc-duong/"
+
+    # credits line configuration
+    copyrightBy = "by Phuc Duong"
+    copyrightUseCurrentYear = true  # set to true to always display the current year in the copyright
+    #copyrightYearOverride = "2018"
+    copyrightUrl = "https://github.com/phucduong86"
+    creditsText = "Bilberry Hugo Theme"
+    creditsUrl = "https://github.com/Lednerb/bilberry-hugo-theme"
+
+
+    # customize your available languages for your multi-langual site
+    # or delete the [Languages] blog to use the theme with only one supported language
+    [Languages]
+    [Languages.en]
+        weight = 1
+
+    # don't change anything below
+    [taxonomies]
+    author   = "author"
+    tag      = "tags"
+    category = "categories"
+
+    [outputs]
+    home = [ "HTML", "JSON", "RSS" ]
+    page = [ "HTML" ]
 
