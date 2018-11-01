@@ -12,4 +12,4 @@ resizeImages: false
 
 Shot from Barron Canyon - Algonquin Park
 
-![Lake View](https://www.dropbox.com/s/mm2on3g19hl61ql/20180810_182044.jpg?raw=1)
+![Lake View](https://www.dropbox.com/s/toz3nr1gt0788sk/20180810_182044.jpg?raw=1)

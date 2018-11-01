@@ -1,7 +1,8 @@
 ---
 title: "About me"
 date: 2018-10-23T23:27:06-04:00
-draft: true
+showdate: false
+draft: false
 excludeFromTopNav: false
 
 # set the link if you want to redirect the user.
