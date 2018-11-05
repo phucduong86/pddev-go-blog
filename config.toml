@@ -25,7 +25,7 @@ enableRobotsTXT = true
 
     # Style configuration
     # set the width of your site's content
-    siteWidth = "800px"
+    siteWidth = "900px"
 
     # let hugo automatically resize and crop your images to the correct sizes
     resizeImages = true
