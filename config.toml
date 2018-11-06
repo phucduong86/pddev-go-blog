@@ -6,7 +6,7 @@ title = "Phuc Duong's Blog"
 theme = "bilberry-hugo-theme"
 
 enableRobotsTXT = true
-#disqusShortname = "xxxx"
+disqusShortname = "pddev-ca"
 
 [params]
   # Favicon for the browser's favorites and tabs
@@ -94,7 +94,7 @@ enableRobotsTXT = true
     # or delete the [Languages] blog to use the theme with only one supported language
     [Languages]
     [Languages.en]
-        weight = 1
+    weight = 1
 
     # don't change anything below
     [taxonomies]
