@@ -25,7 +25,7 @@ disqusShortname = "pddev-ca"
 
     # Style configuration
     # set the width of your site's content
-    siteWidth = "900px"
+    siteWidth = "1000px"
 
     # let hugo automatically resize and crop your images to the correct sizes
     resizeImages = true
