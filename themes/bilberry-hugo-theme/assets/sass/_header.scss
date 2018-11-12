@@ -41,7 +41,11 @@ header {
         a {
             border: 0;
         }
-
+        &:hover {
+            .overlay {
+                opacity: 1;
+            }
+        }
         img {
             max-width: 100%;
             border-radius: 50%;
