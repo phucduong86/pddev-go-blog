@@ -1,15 +1,19 @@
 ---
-title: "Theme Accessibility - Part 1"
+title: "Theme Accessibility - Quick check"
 date: 2018-11-09T15:11:44-05:00
-draft: true
+draft: false
+
+categories: ["accessibility"]
+tags: ["Hugo", "Bilberry theme", "automated accessibility testing", "accessibility", "audit"]
+author: "Phuc Duong"
 ---
 
-*Deleted a bunch of things here due to rambling. I'm not an experience writer and really need to get myself better at hitting the point.*  
+Some quick audit on color contrasts.
+
 The current theme I'm using is [Bilberry-hugo-theme](https://github.com/Lednerb/bilberry-hugo-theme). This post will only focus on color contrasts issue for a few reasons:
 - It can be visually perceived  
 - It is one of the area that automated checker are better at.  
 - Small area of focus so that I have room for tips and takeaway.  
-<!--more-->
 
 ### Get started with a quick check
 
@@ -33,37 +37,9 @@ color: #293e28;
 ```
 
 After these changes, the color contrasts on the page start looking pretty good.
-However, another audit from WAVE still shows 4 color contrast errors pointing towards the social icons
-![Color contrast errors highlighted on the social icons](link to the image)
+However, another audit from WAVE still shows 4 color contrast errors pointing towards the social icons so I ran the aXe extension from Chrome Browser. The result was as I expected: no color contrasts errors.  
 
-Hmm, it looks pretty good to me.
-So I ran the aXe extension from Chrome Browser, the result was as I expected: no color contrasts errors.  
-Inconclusive, guess I'll have to check it myself. A quick inspection using Chrome DevTools, I confirmed that the social icons have color contrast index of 8.62:1 on the white background. We are all good to go. 
+After quick inspection using Chrome DevTools, we can get the value of the background and foreground colors.
+The color contrast checker tool from [WebAIM](https://webaim.org/resources/contrastchecker/) confirmed that the social icons have color contrast index of 8.62:1 on the white background. We are all good to go. 
 
-Write something about not to trust the automated tools...
-
-
-Hover on Phuc Duong's Blog
-Color changes and does not meet color contrast
-Is it required at all the profile icon and link both goes to the same place.
-There is also a nav bar after I created the About Me page.
-Simplify? YES
-
-1. Add the link on Navbar to the main blog page
-With bilberry theme, it is as easy as:
-```hugo new page/blog.md"```
-and add the content:
-```
----
-title: "Blog"
-date: ...
-draft: ...
-excludeFromTopNav: false
-
-# set the link if you want to redirect the user.
-link: "/"
----
-```
-
-Now that I have that on the nav bar, I can remove the links from the profile icon and the blog heading.
-This is done within `themefolder/layouts/partials/header.html`
+Take away: automated tools are great but they won't address all the issues on your websites at the most, and there will be false positives as well. Trust yourself when it is an usability issue because if it seems to be an issue for you, it might be an issue for another person too.
