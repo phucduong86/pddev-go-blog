@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Phuc Duong on Phuc Duong&#39;s Blog</title>
+    <link>https://pddev.ca/author/phuc-duong.html</link>
+    <description>Recent content in Phuc Duong on Phuc Duong&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Nov 2018 15:11:44 -0500</lastBuildDate>
+    
+	<atom:link href="https://pddev.ca/author/phuc-duong/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Theme Accessibility - Quick check</title>
+      <link>https://pddev.ca/posts/theme-accessibility-part-1.html</link>
+      <pubDate>Fri, 09 Nov 2018 15:11:44 -0500</pubDate>
+      
+      <guid>https://pddev.ca/posts/theme-accessibility-part-1.html</guid>
+      <description>Some quick audit on color contrasts.
+The current theme I&amp;rsquo;m using is Bilberry-hugo-theme. This post will only focus on color contrasts issue for a few reasons: - It can be visually perceived
+- It is one of the area that automated checker are better at.
+- Small area of focus so that I have room for tips and takeaway.
+Get started with a quick check I ran a quick Accessibility Test with WAVE Accessibility Checker(it comes as a convenient browser extension for Chrome Browser).</description>
+    </item>
+    
+    <item>
+      <title>Fun with Golang image package</title>
+      <link>https://pddev.ca/posts/golang-image-draw.html</link>
+      <pubDate>Sun, 04 Nov 2018 00:29:59 -0400</pubDate>
+      
+      <guid>https://pddev.ca/posts/golang-image-draw.html</guid>
+      <description>Note: All the source code in this post are contained in once single main.go file.
+You can also get the code from Github repo
+The idea I wanted to recreate Facebook&amp;rsquo;s rainbow filter programmatically. In this basic program I&amp;rsquo;ll implement a function that takes in an image and generate a new one with the filter applied. The idea is to have the before and after effect on my little gopher that looks like this:</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://pddev.ca/posts/second-post.html</link>
+      <pubDate>Tue, 23 Oct 2018 23:38:54 -0400</pubDate>
+      
+      <guid>https://pddev.ca/posts/second-post.html</guid>
+      <description>Aka the real first post After much delay for many reasons (lack of experience, material, imposter syndrome, etc&amp;hellip;). I finally decided to launch my personal blog. I&amp;rsquo;m hoping to have this space to share my knowledge, experience and also be a playground for myself. This blog is powered by Hugo - an open-source static site generator written in Golang language.
+Pros are plenty for me:
+ Written in my favorite programming language.</description>
+    </item>
+    
+    <item>
+      <title>My first Post</title>
+      <link>https://pddev.ca/posts/my-first-post.html</link>
+      <pubDate>Tue, 23 Oct 2018 21:15:06 -0400</pubDate>
+      
+      <guid>https://pddev.ca/posts/my-first-post.html</guid>
+      <description>Shot from Barron Canyon - Algonquin Park</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Phuc Duong&#39;s Blog</title>
+    <link>https://pddev.ca/tags.html</link>
+    <description>Recent content in Tags on Phuc Duong&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Nov 2018 15:11:44 -0500</lastBuildDate>
+    
+	<atom:link href="https://pddev.ca/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Accessibility</title>
+      <link>https://pddev.ca/tags/accessibility.html</link>
+      <pubDate>Fri, 09 Nov 2018 15:11:44 -0500</pubDate>
+      
+      <guid>https://pddev.ca/tags/accessibility.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Algonquin Park</title>
+      <link>https://pddev.ca/tags/algonquin-park.html</link>
+      <pubDate>Tue, 23 Oct 2018 21:15:06 -0400</pubDate>
+      
+      <guid>https://pddev.ca/tags/algonquin-park.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Audit</title>
+      <link>https://pddev.ca/tags/audit.html</link>
+      <pubDate>Fri, 09 Nov 2018 15:11:44 -0500</pubDate>
+      
+      <guid>https://pddev.ca/tags/audit.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Automated Accessibility Testing</title>
+      <link>https://pddev.ca/tags/automated-accessibility-testing.html</link>
+      <pubDate>Fri, 09 Nov 2018 15:11:44 -0500</pubDate>
+      
+      <guid>https://pddev.ca/tags/automated-accessibility-testing.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bilberry Theme</title>
+      <link>https://pddev.ca/tags/bilberry-theme.html</link>
+      <pubDate>Fri, 09 Nov 2018 15:11:44 -0500</pubDate>
+      
+      <guid>https://pddev.ca/tags/bilberry-theme.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://pddev.ca/tags/hugo.html</link>
+      <pubDate>Fri, 09 Nov 2018 15:11:44 -0500</pubDate>
+      
+      <guid>https://pddev.ca/tags/hugo.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Intro</title>
+      <link>https://pddev.ca/tags/intro.html</link>
+      <pubDate>Tue, 23 Oct 2018 23:38:54 -0400</pubDate>
+      
+      <guid>https://pddev.ca/tags/intro.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Photo</title>
+      <link>https://pddev.ca/tags/photo.html</link>
+      <pubDate>Tue, 23 Oct 2018 21:15:06 -0400</pubDate>
+      
+      <guid>https://pddev.ca/tags/photo.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Portaging</title>
+      <link>https://pddev.ca/tags/portaging.html</link>
+      <pubDate>Tue, 23 Oct 2018 21:15:06 -0400</pubDate>
+      
+      <guid>https://pddev.ca/tags/portaging.html</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

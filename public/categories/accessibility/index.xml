@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Accessibility on Phuc Duong&#39;s Blog</title>
+    <link>https://pddev.ca/categories/accessibility.html</link>
+    <description>Recent content in Accessibility on Phuc Duong&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Nov 2018 15:11:44 -0500</lastBuildDate>
+    
+	<atom:link href="https://pddev.ca/categories/accessibility/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Theme Accessibility - Quick check</title>
+      <link>https://pddev.ca/posts/theme-accessibility-part-1.html</link>
+      <pubDate>Fri, 09 Nov 2018 15:11:44 -0500</pubDate>
+      
+      <guid>https://pddev.ca/posts/theme-accessibility-part-1.html</guid>
+      <description>Some quick audit on color contrasts.
+The current theme I&amp;rsquo;m using is Bilberry-hugo-theme. This post will only focus on color contrasts issue for a few reasons: - It can be visually perceived
+- It is one of the area that automated checker are better at.
+- Small area of focus so that I have room for tips and takeaway.
+Get started with a quick check I ran a quick Accessibility Test with WAVE Accessibility Checker(it comes as a convenient browser extension for Chrome Browser).</description>
+    </item>
+    
+  </channel>
+</rss>
