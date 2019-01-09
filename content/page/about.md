@@ -12,4 +12,4 @@ target: "_blank"
 ---
 
 I am a software developer living in Ottawa.  
-I like to make things visually pleasing and universally and accessible.
+I like to be in the business of creating and sharing.
