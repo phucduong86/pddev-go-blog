@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Phuc Duong&#39;s Blog</title>
+    <link>https://pddev.ca/page.html</link>
+    <description>Recent content in Pages on Phuc Duong&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 10 Nov 2018 23:40:26 -0500</lastBuildDate>
+    
+	<atom:link href="https://pddev.ca/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blog</title>
+      <link>https://pddev.ca/page/blog.html</link>
+      <pubDate>Sat, 10 Nov 2018 23:40:26 -0500</pubDate>
+      
+      <guid>https://pddev.ca/page/blog.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>https://pddev.ca/page/about.html</link>
+      <pubDate>Tue, 23 Oct 2018 23:27:06 -0400</pubDate>
+      
+      <guid>https://pddev.ca/page/about.html</guid>
+      <description>I am a software developer living in Ottawa.
+I like to be in the business of creating and sharing.</description>
+    </item>
+    
+  </channel>
+</rss>
