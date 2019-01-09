@@ -23,7 +23,7 @@ The first count was 26 color contrast errors that include:
 - The date, catagories, author fields right under each post's title  
 - The social icons  
 - The link to "Continue reading"  
-- THe footer text  
+- The footer text  
 
 Thanks to the power of Hugo Pipeline, it only took changing a few scss variables to remedy most of the errors.
 All I needed was updating **_variables.scss** with the following:
