@@ -6,7 +6,7 @@ echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 rm -rf public
 
 # Add git submodule
-git submodule add -b master git@github.com:phucduong86/phucduong86.github.io.git public
+git submodule add -b -f master git@github.com:phucduong86/phucduong86.github.io.git public
 
 # Build the project.
 hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
