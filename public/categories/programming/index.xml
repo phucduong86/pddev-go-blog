@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming on Phuc Duong&#39;s Blog</title>
+    <link>https://pddev.ca/categories/programming.html</link>
+    <description>Recent content in Programming on Phuc Duong&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 04 Nov 2018 00:29:59 -0400</lastBuildDate>
+    
+	<atom:link href="https://pddev.ca/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fun with Golang image package</title>
+      <link>https://pddev.ca/posts/golang-image-draw.html</link>
+      <pubDate>Sun, 04 Nov 2018 00:29:59 -0400</pubDate>
+      
+      <guid>https://pddev.ca/posts/golang-image-draw.html</guid>
+      <description>Note: All the source code in this post are contained in once single main.go file.
+You can also get the code from Github repo
+The idea I wanted to recreate Facebook&amp;rsquo;s rainbow filter programmatically. In this basic program I&amp;rsquo;ll implement a function that takes in an image and generate a new one with the filter applied. The idea is to have the before and after effect on my little gopher that looks like this:</description>
+    </item>
+    
+  </channel>
+</rss>

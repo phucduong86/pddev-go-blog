@@ -1,0 +1,484 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Phuc Duong">
+        <meta name="description" content="Developer and accessibility enthusiast">
+        <meta name="keywords" content="blog,personal,posts,golang,accessibility">
+        <meta name="generator" content="Hugo 0.51" />
+        <title> Fun with Golang image package | Phuc Duong&#39;s Blog</title>
+        <meta name="description" content="Fun with Golang image package - Developer and accessibility enthusiast">
+        <meta itemprop="name" content="Fun with Golang image package">
+        <meta itemprop="description" content="Fun with Golang image package - Developer and accessibility enthusiast">
+        <meta property="og:title" content="Fun with Golang image package">
+        <meta property="og:description" content="Fun with Golang image package - Developer and accessibility enthusiast">
+        <meta property="og:image" content="https://www.gravatar.com/avatar/b923b16789a664724d7e17e7ede3add3?size=200">
+        <meta property="og:url" content="https://pddev.ca/posts/golang-image-draw.html">
+        <meta property="og:site_name" content="Phuc Duong&#39;s Blog">
+        <meta property="og:type" content="article">
+
+        <link rel="icon" type="image/png" href="https://pddev.ca/images/favicon-16x16.png" sizes="16x16">
+
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="https://pddev.ca/sass/combined.min.0d5d586996ace2b35d51bb580a1a05b768b90435625b320277aee922df25175f.css">
+
+        
+
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav class="permanentTopNav">
+
+    <div class="container">
+        <ul class="topnav">
+            
+                
+                    <li><a href="../" target="">Blog</a></li>
+                
+            
+                
+                    <li><a href="../page/about.html">About me</a></li>
+                
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="../" class="logo">
+                
+                    <img src="../images/favicon.png" alt="Pddev's logo">
+                
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title">Phuc Duong&#39;s Blog</h3>
+            
+                <span class="subtitle">Developer and accessibility enthusiast.</span>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler permanentTopNav">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+     
+    <div class="article-wrapper u-cf single">
+        
+            
+<article class="default article">
+    
+
+    <div class="content">
+    <h3>Fun with Golang image package</h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-11-04</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="../categories/golang">Golang</a>
+                
+                    <a href="../categories/programming">Programming</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="../author/phuc-duong">Phuc Duong</a></span>
+        
+    </div>
+
+    
+        
+
+<p><strong>Note</strong>: All the source code in this post are contained in once single <code>main.go</code> file.<br />
+You can also get the code from <a href="https://github.com/phucduong86/go-image.git">Github repo</a></p>
+
+<h3 id="the-idea">The idea</h3>
+
+<p>I wanted to recreate Facebook&rsquo;s rainbow filter programmatically. In this basic program I&rsquo;ll implement a function that takes in an image and generate a new one with the filter applied. The idea is to have the before and after effect on my little gopher that looks like this:</p>
+
+<p><img src="../images/golang-image-draw/gopherized.jpg" alt="Gopher Avatar" />
+<img src="../images/golang-image-draw/rainbowedGopherized.jpg" alt="New Gopher Avatar" /></p>
+
+<h3 id="challenge-breakdown">Challenge Breakdown</h3>
+
+<p>To archive the above effect, the procedure can be brokendown to a few steps:</p>
+
+<ol>
+<li>Create a new empty file</li>
+<li>Draw the given image on it (basically make a copy)</li>
+<li>Create a rainbow image with the same dimensions of the new image.<br /></li>
+<li>Overlay the rainbow on top of the current new image, with appropreate opacity so that we can still see the original image.</li>
+<li>Encode and save the image to a new file.</li>
+</ol>
+
+<h3 id="the-basic">The basic</h3>
+
+<p><strong>Generate an image</strong><br />
+Let&rsquo;s create a function that generate a new image with the given file name and dimensions.</p>
+
+<pre><code>func generateImage(filename string, width, height int) {
+	myImage := image.NewRGBA(image.Rect(0, 0, width, height))
+	for i := 0; i &lt; (width * height * 4); i++ {
+		myImage.Pix[i] = 122
+	}
+	// outputFile is a File type which satisfies Writer interface
+	outputFile, err := os.Create(filename)
+	checkErr(err)
+	defer outputFile.Close()
+	// Encode takes a writer interface and an image interface
+	// We pass it the File and the RGBA
+	jpeg.Encode(outputFile, myImage, &amp;jpeg.Options{100})
+	checkErr(err)
+	fmt.Println(&quot;Generated &quot;, filename)
+}
+</code></pre>
+
+<p>The first important line:</p>
+
+<pre><code>myImage := image.NewRGBA(image.Rect(0, 0, width, height))
+</code></pre>
+
+<p>The code above create a new RGBA object the satisfies the image.Image interface with the given &ldquo;width&rdquo; and &ldquo;height&rdquo;. All of its colors can be accessed via a one dimensional slice <strong>myImage.Pix</strong>.</p>
+
+<p>Imagine a 3 dimensional 2 pixels by 2 pixels image:</p>
+
+<pre><code>Pixel[0] Pixel[1] Pixel[2]   
+Pixel[3] Pixel[4] Pixel[5]
+</code></pre>
+
+<p><strong>myImage.Pix</strong> slice would be a slice with 3 * 2 * 4 = 24 elements where:<br />
+- myImage.Pix[0:4] hold Pixel[0]&rsquo;s R,G,B and A value<br />
+- myImage.Pix[4:8] hold Pixel[1]&rsquo;s R,G,B and A value<br />
+- and so on.</p>
+
+<p>In the example above, I&rsquo;ve taken the lazy route of setting all the pixels&rsquo; colors to RGBA{122,122,122,122}.<br />
+Obviously, there must be a more efficient way to do this, here comes <code>func (p *RGBA) SetRGBA(x, y int, c color.RGBA)</code>.<br />
+With this method, we can set the RGBA color value to the pixel at <strong>x, y</strong> coordinate on the image:</p>
+
+<pre><code>newImg.SetRGBA(0, 0, color.RGBA{255,255,255,255})
+newImg.SetRGBA(0, 1, color.RGBA{0,0,0,255})
+...
+</code></pre>
+
+<p>Now we can actually use what we just learned to make a rainbow:</p>
+
+<pre><code>//Define all the colors so we can use them later
+var (
+	red    = color.RGBA{255, 0, 0, 150}
+	orange = color.RGBA{255, 127, 0, 150}
+	yellow = color.RGBA{255, 255, 0, 150}
+	green  = color.RGBA{0, 255, 0, 150}
+	blue   = color.RGBA{0, 0, 255, 150}
+	indigo = color.RGBA{75, 0, 130, 150}
+	violet = color.RGBA{148, 0, 211, 150}
+)
+
+var colors = []color.RGBA{red, yellow, orange, green, blue, indigo, violet}
+
+func makeRainbow(filename string, width, height int) {
+	//Create a new file that we can save the rainbow image to later
+	imageFile, err := os.Create(filename)
+	checkErr(err)
+	defer imageFile.Close()
+
+	//Generate a new RGBA image
+	newImg := image.NewRGBA(image.Rect(0, 0, width, height)) //image.Image type
+
+	//We have to do a bit of math here
+	//We basically divide the image into 7 equal sections horizontally
+	//Iterate through all the pixels and set the colors depends on where it is
+	for i := 0; i &lt; width; i++ {
+		for j := 0; j &lt; height; j++ {
+			row := int(float64(j) / (float64((height + 7) / 7))) //height-7 eliminate the edge case when row is calculated to 7
+			newImg.SetRGBA(i, j, colors[row])
+		}
+	}
+	//Encode the image.Image object in png format and save it to imageFile.
+	png.Encode(imageFile, newImg)
+	checkErr(err)
+	fmt.Println(&quot;Made rainbow: &quot;+filename+&quot; width and height: &quot;, width, height)
+}
+</code></pre>
+
+<p>An important note here is that the rainbow image needs to be encoded in png format so that it preserve the Alpha property, which result in the opacity effect when it is drawn on top of another image.
+<strong>Another helper: Get an image&rsquo;s dimensions</strong></p>
+
+<p>There are more than 1 way to acquiring the dimensions of an image. This is a common solution: decoding the file to image.Image object and call the Bounds() method to retrieve the dimensions</p>
+
+<pre><code>func getImgDimensions(filename string) {
+	imageFile, err := os.Open(filename)
+	checkErr(err)
+	defer imageFile.Close()
+
+	decodedImg, err := jpeg.Decode(imageFile)
+	dimensions := decodedImg.Bounds()
+	fmt.Println(&quot;width: &quot;, dimensions.Dx(), &quot; Height: &quot;, dimensions.Dy())
+}
+</code></pre>
+
+<p>You can also explore the DecodeConfig function in the &ldquo;image&rdquo; package as well.</p>
+
+<h3 id="recap">Recap</h3>
+
+<p>With the functions we created above, we can cover a good chunk of the broken down process:
+- Create a new file
+- Get an image&rsquo;s dimension
+- Generate an image of a rainbow with given dimensions.</p>
+
+<h3 id="the-final-bits">The final bits</h3>
+
+<p>Go comes with a powerful built in package for manipulating and composing images. I consulted a great article on this topic on <a href="https://blog.golang.org/go-imagedraw-package">Go Blog</a>.</p>
+
+<p>Utilise the <code>draw.Draw(...)</code> I was able to implement the rest of the logic:</p>
+
+<pre><code>func rainbowOverlay(givenFilename, newFilename string) {
+	//get the given image's dimension
+	givenFile, err := os.Open(givenFilename)
+	checkErr(err)
+	defer givenFile.Close()
+	givenImg, _, _ := image.Decode(givenFile)
+	dimensions := givenImg.Bounds()
+
+	makeRainbow(&quot;rainbow.png&quot;, dimensions.Dx(), dimensions.Dy())
+	srcFile, err := os.Open(&quot;rainbow.png&quot;)
+	checkErr(err)
+	defer srcFile.Close()
+	srcImg, _, _ := image.Decode(srcFile)
+
+	m := image.NewRGBA(image.Rect(0, 0, dimensions.Dx(), dimensions.Dy()))
+	draw.Draw(m, m.Bounds(), givenImg, image.Point{0, 0}, draw.Src)
+	draw.Draw(m, m.Bounds(), srcImg, image.Point{0, 0}, draw.Over)
+
+	imageFile, err := os.Create(newFilename)
+	jpeg.Encode(imageFile, m, &amp;jpeg.Options{100})
+	checkErr(err)
+}
+</code></pre>
+
+<p>Put them all together and you will have a basic program to add rainbow filter to your photo.
+<code>https://github.com/phucduong86/go-image.git</code> and <code>go run main.go</code> to check it out.</p>
+
+<h3 id="references-materials">References materials:</h3>
+
+<p><a href="https://www.devdungeon.com/content/working-images-go">https://www.devdungeon.com/content/working-images-go</a><br />
+<a href="https://golang.org/pkg/image/">https://golang.org/pkg/image/</a><br />
+<a href="https://golang.org/pkg/image/png/">https://golang.org/pkg/image/png/</a><br />
+<a href="https://golang.org/pkg/image/draw/">https://golang.org/pkg/image/draw/</a><br />
+<a href="https://blog.golang.org/go-imagedraw-package">https://blog.golang.org/go-imagedraw-package</a></p>
+
+    
+</div>
+
+    
+<div class="footer no-tags">
+
+
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "pddev-ca" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+     
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="../posts/theme-accessibility-part-2.html">Bilberry Hugo Theme Accessibility Part 2</a>
+                    </li>
+                
+                    <li>
+                        <a href="../posts/theme-accessibility-part-1.html">Bilberry Hugo Theme Accessibility - Part 1</a>
+                    </li>
+                
+                    <li>
+                        <a href="../posts/golang-image-draw.html">Fun with Golang image package</a>
+                    </li>
+                
+                    <li>
+                        <a href="../posts/second-post.html">Hello World</a>
+                    </li>
+                
+                    <li>
+                        <a href="../posts/my-first-post.html">My first Post</a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="../categories/"><strong>Categories</strong></a>
+                <ul>
+                
+                    <li>
+                        <a href="../categories/accessibility">Accessibility (2)</a>
+                    </li>
+                
+                    <li>
+                        <a href="../categories/personal">Personal (2)</a>
+                    </li>
+                
+                    <li>
+                        <a href="../categories/golang">Golang (1)</a>
+                    </li>
+                
+                    <li>
+                        <a href="../categories/programming">Programming (1)</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                    <a href="https://twitter.com/pddev_ca" target="_blank"><i class="fa fa-twitter-adblock-proof"></i></a>
+                
+                
+                
+                
+                
+                    <a href="https://www.instagram.com/phucduong86/" target="_blank"><i class="fa fa-instagram"></i></a>
+                
+                
+                
+                
+                
+                    <a href="https://github.com/phucduong86" target="_blank"><i class="fa fa-github"></i></a>
+                
+                
+                    <a href="https://www.linkedin.com/in/phuc-duong/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/phucduong86" target="_blank">
+                &copy;
+                
+                    2019
+                
+                by Phuc Duong
+            </a>
+	    
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+
+        
+
+        
+        
+        <script type="text/javascript" src="https://pddev.ca/js/externalDependencies.2a3cf2b558bd16302d997f6c20de885831fe6e39f05a054ddede6211a4a78d882081b58973893707bbefb74dc3611b37e66edb04bc5f075f4a198b2d135d96ae.js" integrity="sha512-KjzytVi9FjAtmX9sIN6IWDH&#43;bjnwWgVN3t5iEaSnjYgggbWJc4k3B7vvt03DYRs35m7bBLxfB19KGYstE12Wrg=="></script>
+
+        
+        
+        <script type="text/javascript" src="https://pddev.ca/js/theme.cb083fd3fdfc966163c0acfee5ab9b38764bda9e8a4fc2a5e20389a84aa7f95506e11e01a7238426ad8074d53846be4420a26e959a7f44014c7053a3902aa56c.js" integrity="sha512-ywg/0/38lmFjwKz&#43;5aubOHZL2p6KT8Kl4gOJqEqn&#43;VUG4R4BpyOEJq2AdNU4Rr5EIKJulZp/RAFMcFOjkCqlbA=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+
+        
+
+
+    </body>
+</html>

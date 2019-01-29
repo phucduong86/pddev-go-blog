@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bilberry Theme on Phuc Duong&#39;s Blog</title>
+    <link>https://pddev.ca/tags/bilberry-theme.html</link>
+    <description>Recent content in Bilberry Theme on Phuc Duong&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Jan 2019 00:08:06 -0500</lastBuildDate>
+    
+	<atom:link href="https://pddev.ca/tags/bilberry-theme/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bilberry Hugo Theme Accessibility Part 2</title>
+      <link>https://pddev.ca/posts/theme-accessibility-part-2.html</link>
+      <pubDate>Tue, 22 Jan 2019 00:08:06 -0500</pubDate>
+      
+      <guid>https://pddev.ca/posts/theme-accessibility-part-2.html</guid>
+      <description>&lt;p&gt;Quick work on links to article with &lt;a href=&#34;https://github.com/Lednerb/bilberry-hugo-theme&#34;&gt;Bilberry-hugo-theme&lt;/a&gt;.&lt;br /&gt;
+Improve on accessibility by removing redundant links to the same location.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Bilberry Hugo Theme Accessibility - Part 1</title>
+      <link>https://pddev.ca/posts/theme-accessibility-part-1.html</link>
+      <pubDate>Fri, 09 Nov 2018 15:11:44 -0500</pubDate>
+      
+      <guid>https://pddev.ca/posts/theme-accessibility-part-1.html</guid>
+      <description>&lt;p&gt;Some quick audit on color contrasts with &lt;a href=&#34;https://github.com/Lednerb/bilberry-hugo-theme&#34;&gt;Bilberry-hugo-theme&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
