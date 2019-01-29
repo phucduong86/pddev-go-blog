@@ -1,7 +1,3 @@
-<a class="bubble" href="{{ .URL }}">
-    <i class="fa fa-fw {{or .Params.icon "fa-camera" }}"></i>
-</a>
-
 <article class="gallery">
     {{ if and (isset .Params "gallery") (ne .Params.gallery "") }}
         <div class="flexslider">
